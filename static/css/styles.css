@@ -1,0 +1,53 @@
+/* Additional custom styles beyond Bootstrap */
+
+body {
+    padding-bottom: 2rem;
+}
+
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.breadcrumb-display {
+    font-size: 1.1rem;
+    color: var(--bs-info);
+}
+
+/* Styling for the textarea */
+textarea.form-control {
+    border: 1px solid var(--bs-border-color);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+textarea.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Add some animation for loading indicator */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.spinner-border {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Style the footer */
+footer {
+    color: var(--bs-secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Make results more readable */
+#summaryResult, #breadcrumbsResult {
+    line-height: 1.6;
+}
