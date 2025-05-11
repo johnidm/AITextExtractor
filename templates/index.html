@@ -78,8 +78,13 @@
                 <!-- Breadcrumbs Card -->
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between align-items-center">
                             <h5><i class="fas fa-sitemap me-2"></i>Breadcrumb Trail</h5>
+                            <div class="btn-group" role="group" aria-label="Breadcrumb separator">
+                                <button type="button" class="btn btn-sm btn-outline-secondary separator-btn active" data-separator="default">Default</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary separator-btn" data-separator="greater_than">Greater Than (>)</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary separator-btn" data-separator="slash">Forward Slash (/)</button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <p id="breadcrumbsResult" class="mb-0 breadcrumb-display"></p>
