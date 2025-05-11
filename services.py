@@ -44,7 +44,15 @@ def summarize_text(text):
             }],
             max_tokens=500)
 
-        return response.choices[0].message.content.strip()
+        # Access the content safely with a fallback
+        summary = "No summary content available."
+        
+        if response and response.choices and len(response.choices) > 0:
+            content = response.choices[0].message.content
+            if content is not None:
+                summary = content.strip()
+                
+        return summary
     except Exception as e:
         logging.error(f"Error summarizing text: {str(e)}")
         raise Exception(f"Failed to summarize text: {str(e)}")
@@ -90,8 +98,13 @@ def extract_breadcrumbs(text, separator_type=None):
             }],
             max_tokens=200)
 
-        # Get the raw response
-        breadcrumb_trail = response.choices[0].message.content.strip()
+        # Access the content safely with a fallback
+        breadcrumb_trail = "Home > Current Page"  # Default fallback
+        
+        if response and response.choices and len(response.choices) > 0:
+            content = response.choices[0].message.content
+            if content is not None:
+                breadcrumb_trail = content.strip()
         
         # If a specific separator type is requested, ensure the response uses that separator
         if separator_type == "slash" and ">" in breadcrumb_trail:
@@ -102,6 +115,7 @@ def extract_breadcrumbs(text, separator_type=None):
             breadcrumb_trail = breadcrumb_trail.replace(" / ", " > ")
             
         return breadcrumb_trail
+            
     except Exception as e:
         logging.error(f"Error extracting breadcrumbs: {str(e)}")
         raise Exception(f"Failed to extract breadcrumbs: {str(e)}")

@@ -20,8 +20,9 @@ def index():
 @app.route('/process', methods=['POST'])
 def process_text():
     """Process the submitted text and return summary and breadcrumbs."""
-    data = request.json
+    data = request.json if request.json else {}
     text = data.get('text', '')
+    separator_type = data.get('separator_type')  # Get separator preference if provided
 
     if not text:
         return jsonify({'error': 'No text provided'}), 400
@@ -30,8 +31,8 @@ def process_text():
         # Get text summary from OpenAI
         summary = summarize_text(text)
 
-        # Extract breadcrumbs from text
-        breadcrumbs = extract_breadcrumbs(text)
+        # Extract breadcrumbs from text with optional separator type
+        breadcrumbs = extract_breadcrumbs(text, separator_type)
 
         return jsonify({'summary': summary, 'breadcrumbs': breadcrumbs})
     except Exception as e:

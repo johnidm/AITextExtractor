@@ -17,6 +17,19 @@ body {
 .breadcrumb-display {
     font-size: 1.1rem;
     color: var(--bs-info);
+    font-weight: 500;
+}
+
+/* Style for separator buttons */
+.separator-btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.separator-btn.active {
+    background-color: var(--bs-primary);
+    color: #fff;
+    border-color: var(--bs-primary);
 }
 
 /* Styling for the textarea */

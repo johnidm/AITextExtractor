@@ -5,7 +5,10 @@ A powerful web application that uses OpenAI's gpt-4o-mini model to analyze text,
 ## Features
 
 - **Text Summarization**: Automatically condenses lengthy text into concise summaries while preserving key information.
-- **Breadcrumb Trail Extraction**: Identifies or creates a hierarchical breadcrumb trail from the content (e.g., Home > Category > Subcategory).
+- **Breadcrumb Trail Extraction**: Identifies or creates a hierarchical breadcrumb trail from the content with support for both separator styles:
+  - Forward slash format: `Home / Category / Subcategory`
+  - Greater than format: `Home > Category > Subcategory`
+- **Custom Separator Selection**: Users can choose their preferred breadcrumb separator style with the click of a button.
 - **Responsive UI**: Clean, modern interface built with Bootstrap that works on both desktop and mobile devices.
 - **Real-time Processing**: Processes text in real-time using OpenAI's powerful language models.
 

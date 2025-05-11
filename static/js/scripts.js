@@ -36,13 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         hideError();
         hideResults();
         
+        // Get separator preference if user selected one
+        const separatorBtn = document.querySelector('.separator-btn.active');
+        const separatorType = separatorBtn ? 
+            (separatorBtn.dataset.separator !== 'default' ? separatorBtn.dataset.separator : null) : 
+            null;
+            
         // Send the request to the backend
         fetch('/process', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ text: text })
+            body: JSON.stringify({ 
+                text: text,
+                separator_type: separatorType 
+            })
         })
         .then(response => {
             if (!response.ok) {
